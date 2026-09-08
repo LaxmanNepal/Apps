@@ -1,0 +1,182 @@
+{
+  "version": 3,
+  "updatedAt": "2026-09-08T05:12:14.008513+00:00",
+  "apps": [
+    {
+      "id": "nisulka-tools",
+      "name": "Nisulka Tools",
+      "description": "Free browser-based tools for everyday productivity and creators.",
+      "category": "Tools",
+      "url": "https://apps.laxmannepal.com.np/Nisulka-Tools/",
+      "icon": "🛠️",
+      "featured": true,
+      "keywords": [
+        "tools",
+        "productivity",
+        "creator"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:12.826275+00:00"
+    },
+    {
+      "id": "nepali-patro",
+      "name": "Nepali Patro",
+      "description": "Nepali calendar with date, festival and cultural information.",
+      "category": "Nepal",
+      "url": "https://apps.laxmannepal.com.np/Nepali-Patro/",
+      "icon": "📅",
+      "featured": true,
+      "keywords": [
+        "nepali calendar",
+        "patro",
+        "date",
+        "festival"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:12.926982+00:00"
+    },
+    {
+      "id": "nepse-pulse",
+      "name": "NEPSE Pulse",
+      "description": "Nepal stock-market intelligence, company research and finance tools.",
+      "category": "Finance",
+      "url": "https://apps.laxmannepal.com.np/nepse/",
+      "icon": "📈",
+      "featured": true,
+      "keywords": [
+        "nepse",
+        "shares",
+        "stocks",
+        "finance",
+        "market"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.048311+00:00"
+    },
+    {
+      "id": "live-tv",
+      "name": "Live TV",
+      "description": "A web interface for discovering available live television streams.",
+      "category": "Media",
+      "url": "https://apps.laxmannepal.com.np/Live-TV/",
+      "icon": "📺",
+      "featured": false,
+      "keywords": [
+        "tv",
+        "live tv",
+        "television"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.170022+00:00"
+    },
+    {
+      "id": "nepali-movies",
+      "name": "Nepali Movies",
+      "description": "A Nepali cinema discovery project.",
+      "category": "Media",
+      "url": "https://apps.laxmannepal.com.np/Nepali-Movies/",
+      "icon": "🎬",
+      "featured": false,
+      "keywords": [
+        "nepali movies",
+        "cinema",
+        "films"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.290496+00:00"
+    },
+    {
+      "id": "south-movies",
+      "name": "South Movies",
+      "description": "South Indian movie discovery and streaming information.",
+      "category": "Media",
+      "url": "https://apps.laxmannepal.com.np/South-Movies/",
+      "icon": "🎞️",
+      "featured": false,
+      "keywords": [
+        "south movies",
+        "movies",
+        "cinema"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.463711+00:00"
+    },
+    {
+      "id": "hindu",
+      "name": "Hindu",
+      "description": "A searchable collection of Hindu scriptures and related information.",
+      "category": "Culture",
+      "url": "https://apps.laxmannepal.com.np/Hindu/",
+      "icon": "🕉️",
+      "featured": false,
+      "keywords": [
+        "hindu",
+        "grantha",
+        "scriptures",
+        "purana"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.599675+00:00"
+    },
+    {
+      "id": "nepali-news",
+      "name": "Nepali News",
+      "description": "A Nepali news application and digital news experience.",
+      "category": "News",
+      "url": "https://apps.laxmannepal.com.np/apps/NepaliNews.html",
+      "icon": "📰",
+      "featured": false,
+      "keywords": [
+        "nepal",
+        "news",
+        "nepali news"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.753403+00:00"
+    },
+    {
+      "id": "text-to-handwriting",
+      "name": "Text to Handwriting",
+      "description": "Convert typed text into handwriting-style output.",
+      "category": "Tools",
+      "url": "https://apps.laxmannepal.com.np/Text-To-Handwriting/",
+      "icon": "✍️",
+      "featured": true,
+      "keywords": [
+        "text",
+        "handwriting",
+        "notes",
+        "converter"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:13.884902+00:00"
+    },
+    {
+      "id": "progress-bar-year",
+      "name": "Progress Bar of the Year",
+      "description": "Track how much of the current year has passed.",
+      "category": "Utility",
+      "url": "https://apps.laxmannepal.com.np/Progress-Bar-Of-The-Year/",
+      "icon": "⏳",
+      "featured": false,
+      "keywords": [
+        "year",
+        "progress",
+        "time",
+        "utility"
+      ],
+      "status": "online",
+      "httpStatus": 200,
+      "lastChecked": "2026-09-08T05:12:14.008494+00:00"
+    }
+  ]
+}
