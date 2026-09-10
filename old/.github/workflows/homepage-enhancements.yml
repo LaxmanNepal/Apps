@@ -1,0 +1,93 @@
+name: Homepage Data Renderer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: homepage-renderer
+  cancel-in-progress: true
+
+jobs:
+  enhance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify generated data
+        run: |
+          test -s data/youtube.json
+          test -s data/apps.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          yt=json.loads(Path('data/youtube.json').read_text(encoding='utf-8'))
+          apps=json.loads(Path('data/apps.json').read_text(encoding='utf-8'))
+          if not yt.get('channel',{}).get('statistics'):
+              raise SystemExit('youtube.json missing channel statistics')
+          if not isinstance(apps.get('apps'),list):
+              raise SystemExit('apps.json missing apps array')
+          required=('id','name','url')
+          for a in apps['apps']:
+              if any(not a.get(k) for k in required):
+                  raise SystemExit(f'invalid app: {a}')
+          print('YouTube and app data valid:', len(apps['apps']), 'apps')
+          PY
+
+      - name: Install homepage renderers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('index.html')
+          text=p.read_text(encoding='utf-8')
+
+          # The original homepage contained an inline Apps/YouTube renderer.
+          # The maintained external renderer now owns that responsibility, so
+          # remove the legacy block to avoid duplicate fetches and race conditions.
+          legacy = re.compile(
+              r'\nasync function loadYT\(\)\{.*?\n\$\([\'\"]#search[\'\"]\)\.oninput=drawApps;loadYT\(\);loadApps\(\);loadApps\(\);reveal\(\);',
+              re.S,
+          )
+          # Handle the actual single-call form as well.
+          legacy_single = re.compile(
+              r'\nasync function loadYT\(\)\{.*?\n\$\([\'\"]#search[\'\"]\)\.oninput=drawApps;loadYT\(\);loadApps\(\);reveal\(\);',
+              re.S,
+          )
+          text, removed = legacy.subn('\nreveal();', text, count=1)
+          if removed == 0:
+              text, removed = legacy_single.subn('\nreveal();', text, count=1)
+          if removed > 1:
+              raise SystemExit(f'removed unexpected number of legacy renderer blocks: {removed}')
+
+          tags='''<script src="assets/site-enhancements.js?v=7" defer></script>\n<script src="assets/apps-homepage.js?v=1" defer></script>'''
+
+          # Remove previous renderer versions and any obsolete/duplicate app renderer.
+          text=re.sub(r'<script\s+src=["\']assets/site-enhancements\.js(?:\?[^"\']*)?["\']\s+defer></script>\s*','',text,flags=re.I)
+          text=re.sub(r'<script\s+src=["\']assets/apps-renderer\.js(?:\?[^"\']*)?["\']\s+defer></script>\s*','',text,flags=re.I)
+          text=re.sub(r'<script\s+src=["\']assets/apps-homepage\.js(?:\?[^"\']*)?["\']\s+defer></script>\s*','',text,flags=re.I)
+
+          if '</body>' not in text:
+              raise SystemExit('index.html has no closing body tag')
+          text=text.replace('</body>',tags+'\n</body>',1)
+          p.write_text(text,encoding='utf-8')
+          PY
+
+      - name: Validate homepage renderer installation
+        run: python scripts/check-homepage-integrity.py
+
+      - name: Commit renderer installation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet || git commit -m 'feat: enhance homepage app discovery'
+          git push

@@ -1,5 +1,5 @@
-# Laxman Nepal Apps
+# Laxman Nepal Website
 
-Live site: https://apps.laxmannepal.com.np/
+Fresh rebuild started from scratch.
 
-This repository mirrors the source site from `LaxmanNepal/laxmannepal.github.io` and deploys it through GitHub Pages.
+The previous website has been preserved in `old/`.
