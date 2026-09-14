@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f5f7">
+<meta name="description" content="Laxman AI — personal knowledge, research and GitHub assistant powered by Khoj.">
+<title>Laxman AI — Khoj</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-icon">LN</div><div><strong>Laxman AI</strong><span>Knowledge OS</span></div></div>
+    <button class="new-chat" id="newChat">＋ New chat</button>
+    <nav class="nav">
+      <a class="active" href="#"><span>⌕</span> Chat</a>
+      <a href="#knowledge"><span>◫</span> Knowledge</a>
+      <a href="#agents"><span>✦</span> Agents</a>
+      <a href="#research"><span>⌁</span> Research</a>
+    </nav>
+    <div class="side-section"><div class="side-label">Knowledge sources</div>
+      <div class="source"><i></i> GitHub</div>
+      <div class="source"><i></i> Documents</div>
+      <div class="source"><i></i> Web research</div>
+    </div>
+    <div class="sidebar-bottom"><a href="https://github.com/LaxmanNepal/Apps" target="_blank" rel="noopener">GitHub ↗</a><button id="theme">Appearance</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><button class="icon-btn menu" id="menu">☰</button><div class="top-title">Laxman AI</div><div class="top-actions"><span class="status"><b></b> Prototype</span></div></header>
+    <section class="chat" id="chat">
+      <div class="welcome" id="welcome">
+        <div class="hero-icon">✦</div>
+        <h1>What can I help you find?</h1>
+        <p>Ask across your knowledge, GitHub projects, documents and research.</p>
+        <div class="suggestions">
+          <button data-prompt="Explain my Nepali-Patro project">Explain my Nepali-Patro project</button>
+          <button data-prompt="What projects should I improve next?">What projects should I improve next?</button>
+          <button data-prompt="Research the latest open-source AI tools">Research the latest open-source AI tools</button>
+          <button data-prompt="Summarize my AI projects">Summarize my AI projects</button>
+        </div>
+      </div>
+      <div class="messages" id="messages"></div>
+      <div class="composer-wrap">
+        <form class="composer" id="composer">
+          <textarea id="input" rows="1" placeholder="Ask Laxman AI anything..." autocomplete="off"></textarea>
+          <div class="composer-bottom"><div class="composer-hint">Khoj backend will connect here</div><button class="send" aria-label="Send">↑</button></div>
+        </form>
+        <p class="disclaimer">Laxman AI is currently a frontend prototype. Your Khoj/Colab backend will be connected next.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
